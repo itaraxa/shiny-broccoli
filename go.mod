@@ -3,6 +3,7 @@ module github.com/itaraxa/shiny-broccoli
 go 1.19
 
 require (
+	github.com/gosnmp/gosnmp v1.35.0
 	github.com/sirupsen/logrus v1.8.1
 	github.com/slayercat/GoSNMPServer v0.1.2
 	github.com/slayercat/gosnmp v1.24.1
