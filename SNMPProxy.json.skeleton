@@ -1,0 +1,22 @@
+{
+	"ListOfTS": [
+		{
+			"KKS": "",
+			"Port for getting SNMPv2c query": "",
+			"IP address of TS": "",
+			"SNMP port of TS": "",
+			"List of OIDs": null,
+			"TS SNMP version": "",
+			"Input SNMP parametres": {
+				"Community": ""
+			},
+			"Output SNMP parametres": {
+				"Auth level SNMPv3 (noAuthNoPriv/authNoPriv/authPriv)": "",
+				"Auth name for noAuthNoPriv level": "",
+				"MD5 or SHA auth string": "",
+				"Hashing method for AuthString (MD5/SHA)": "",
+				"Data encryption method (DES). Only for authPriv level": ""
+			}
+		}
+	]
+}

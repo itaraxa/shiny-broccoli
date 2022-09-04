@@ -20,11 +20,20 @@ func makeApp() *cli.App {
 			{
 				Name:    "start",
 				Usage:   "Start SNMP proxy-server",
-				Aliases: []string{"run"},
+				Aliases: []string{"s"},
 				Action:  startProxy,
 				Flags: []cli.Flag{
 					&cli.StringFlag{Name: "logLevel", Value: "info"},
 					&cli.StringFlag{Name: "config", Value: "proxy.json"},
+				},
+			},
+			{
+				Name:    "generate",
+				Usage:   "Generate skeleton for configuration file",
+				Aliases: []string{"g"},
+				Action:  generateConfig,
+				Flags: []cli.Flag{
+					&cli.StringFlag{Name: "fileName", Value: "SNMPProxy.json.skeleton"},
 				},
 			},
 		},
