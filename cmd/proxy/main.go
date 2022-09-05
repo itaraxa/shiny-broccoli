@@ -3,12 +3,17 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"strings"
+	"sync"
 
+	"github.com/itaraxa/shiny-broccoli/internal/config"
+	"github.com/itaraxa/shiny-broccoli/internal/models"
 	"github.com/sirupsen/logrus"
 	"github.com/slayercat/GoSNMPServer"
 	"github.com/slayercat/GoSNMPServer/mibImps"
+	"github.com/slayercat/gosnmp"
 	"github.com/urfave/cli/v2"
 )
 
@@ -56,30 +61,65 @@ func startProxy(c *cli.Context) error {
 		logger.(*GoSNMPServer.DefaultLogger).Level = logrus.TraceLevel
 	}
 
-	// Setup SNMP master: listen community "public" with default OIDs
-	master := GoSNMPServer.MasterAgent{
-		Logger: logger,
-		SecurityConfig: GoSNMPServer.SecurityConfig{
-			NoSecurity: true, // disable authorisation
-		},
-		SubAgents: []*GoSNMPServer.SubAgent{
-			{
-				// Setup listening community
-				CommunityIDs: []string{"public"},
-				// Setup list of OIDs with middleware
-				// TODO: add midleware for resending query
-				OIDs: mibImps.All(),
-			},
-		},
+	myConfig, err := config.LoadConfigFromJSON(c.String("config"))
+	if err != nil {
+		logger.Fatalf("Error loading config: %v", err)
 	}
 
-	// Start SNMP server with master
-	server := GoSNMPServer.NewSNMPServer(master)
-	err := server.ListenUDP("udp", "127.0.0.1:6161")
-	if err != nil {
-		logger.Errorf("Error in listen: %+v", err)
+	logger.Infof("Logging settings from file: Filename=%s logLevel=%s", myConfig.LogFile, myConfig.LogLevel)
+	var wg sync.WaitGroup
+
+	for _, client := range myConfig.ListOfTS {
+		wg.Add(1)
+		go func(b models.TS) {
+			// Setup SNMP master: listen community "public" with default OIDs
+			logger.Infof("Start goroutine for %s serving", b.Name)
+			defer wg.Done()
+			master := GoSNMPServer.MasterAgent{
+				Logger: logger,
+				SecurityConfig: GoSNMPServer.SecurityConfig{
+					// NoSecurity: false, // disable authorisation
+					AuthoritativeEngineBoots: 1,
+					Users: []gosnmp.UsmSecurityParameters{
+						{
+							UserName:                 "test1",
+							AuthenticationProtocol:   gosnmp.MD5,
+							PrivacyProtocol:          gosnmp.DES,
+							AuthenticationPassphrase: "test1test",
+							PrivacyPassphrase:        "test1test",
+						},
+						{
+							UserName:                 "test2",
+							AuthenticationProtocol:   gosnmp.MD5,
+							PrivacyProtocol:          gosnmp.DES,
+							AuthenticationPassphrase: "test2test",
+							PrivacyPassphrase:        "test2test",
+						},
+					},
+				},
+				SubAgents: []*GoSNMPServer.SubAgent{
+					{
+						// Setup listening community
+						CommunityIDs: []string{"public"},
+						// Setup list of OIDs with middleware
+						// TODO: add midleware for resending query
+						OIDs: mibImps.All(),
+					},
+				},
+			}
+
+			// Start SNMP server with master
+			server := GoSNMPServer.NewSNMPServer(master)
+			// Привязка к привеллигированному порту (<1000) требует прав root
+			err = server.ListenUDP("udp", fmt.Sprintf("%s:%s", "127.0.0.1", b.ListenPort))
+			if err != nil {
+				logger.Errorf("Error in listen: %+v", err)
+			}
+			server.ServeForever()
+		}(client)
 	}
-	server.ServeForever()
+
+	wg.Wait()
 
 	return nil
 }

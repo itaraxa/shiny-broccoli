@@ -10,22 +10,36 @@ import (
 
 /* Чтение перечня устройств и параметров доступа по SNMP из конфигурационного файла в JSON формате.
  */
-func LoadConfigFromJSON(fileName string) (*models.TSs, error) {
-	TSs := new(models.TSs)
+func LoadConfigFromJSON(fileName string) (*models.GlobalConfig, error) {
+	myConf := new(models.GlobalConfig)
 
-	return TSs, nil
+	file, err := os.Open(fileName)
+	if err != nil {
+		return nil, fmt.Errorf("error opening configuration file %s: %v", fileName, err)
+	}
+	defer file.Close()
+
+	decoder := json.NewDecoder(file)
+	err = decoder.Decode(myConf)
+	if err != nil {
+		return nil, fmt.Errorf("error reading json config from file %s: %v", fileName, err)
+	}
+
+	return myConf, nil
 }
 
+/* Создать файл с пустой конфигурацией
+ */
 func GenerateSkeletonConfigJSON(fileName string) (err error) {
 	file, err := os.Create(fileName)
 	if err != nil {
 		return fmt.Errorf("error opening file for writing congfig skelton: %v", err)
 	}
 
-	myTSs := new(models.TSs)
+	myConf := new(models.GlobalConfig)
 	myTS := new(models.TS)
-	myTSs.ListOfTS = append(myTSs.ListOfTS, *myTS)
-	jsonData, err := json.MarshalIndent(myTSs, "", "\t")
+	myConf.TSs.ListOfTS = append(myConf.TSs.ListOfTS, *myTS)
+	jsonData, err := json.MarshalIndent(myConf, "", "\t")
 	if err != nil {
 		return fmt.Errorf("error marshall struct to json")
 	}

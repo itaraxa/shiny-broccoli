@@ -1,6 +1,4 @@
 build:
-	go build -o out/server cmd/server/*.go
-	go build -o out/client cmd/client/*.go
 	go build -o out/proxy cmd/proxy/*.go
 
 clean:

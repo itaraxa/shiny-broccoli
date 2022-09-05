@@ -12,6 +12,15 @@ type Entity struct {
 	// Logger log.Logger
 }
 
+/* Общие настройки
+ */
+type GlobalConfig struct {
+	LogFile  string `json:"File for logs"`
+	LogLevel string `json:"Logging level (fatal/error/info/debug/trace)"`
+	NProcs   int    `json:"Number of parallel processes"`
+	TSs      `json:"List of TS"`
+}
+
 /*
 Стурктура для хранения конфигурации технических средств
 */
