@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"strings"
 
@@ -44,7 +45,9 @@ func makeApp() *cli.App {
 
 func main() {
 	app := makeApp()
-	app.Run(os.Args)
+	if err := app.Run(os.Args); err != nil {
+		fmt.Printf("Critical error. Cannot start application: %v\n", err)
+	}
 }
 
 func runServer(c *cli.Context) error {

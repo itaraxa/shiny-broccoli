@@ -13,12 +13,6 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-func init() {
-	// logger := log.New()
-	// logger.SetFormatter(&log.TextFormatter{DisableLevelTruncation: true, FullTimestamp: true})
-	// logger.SetOutput(os.Stdout)
-}
-
 func makeApp() *cli.App {
 	return &cli.App{
 		Name:        "SNMP client",
@@ -41,7 +35,7 @@ func makeApp() *cli.App {
 func main() {
 	app := makeApp()
 	if err := app.Run(os.Args); err != nil {
-		fmt.Println("run error")
+		fmt.Printf("Critical error. Cannot start application: %v\n", err)
 	}
 }
 
@@ -62,27 +56,33 @@ func startClient(c *cli.Context) (err error) {
 		logger.Level = log.TraceLevel
 	}
 
+	logger.WithFields(log.Fields{"logLevel": c.String("logLevel"),
+		"config": c.String("config")}).Info("Started configuration")
+
 	OIDs := []string{"1.3.6.1.2.1.2.2.1.1.0",
 		"1.3.6.1.2.1.2.2.1.1.1",
 		"1.3.6.1.2.1.2.2.1.1.2",
-		// "1.3.6.1.2.1.2.2.1.1.3",
-		// "1.3.6.1.2.1.2.2.1.2.0",
-		// "1.3.6.1.2.1.2.2.1.2.1",
-		// "1.3.6.1.2.1.2.2.1.2.2",
-		// "1.3.6.1.2.1.2.2.1.2.3",
-		// "1.3.6.1.2.1.2.2.1.3.0",
-		// "1.3.6.1.2.1.2.2.1.3.1",
-		// "1.3.6.1.2.1.2.2.1.3.2",
-		// "1.3.6.1.2.1.2.2.1.3.3",
+		"1.3.6.1.2.1.2.2.1.1.3",
+		"1.3.6.1.2.1.2.2.1.2.0",
+		"1.3.6.1.2.1.2.2.1.2.1",
+		"1.3.6.1.2.1.2.2.1.2.2",
+		"1.3.6.1.2.1.2.2.1.2.3",
+		"1.3.6.1.2.1.2.2.1.3.0",
+		"1.3.6.1.2.1.2.2.1.3.1",
+		"1.3.6.1.2.1.2.2.1.3.2",
+		"1.3.6.1.2.1.2.2.1.3.3",
 	}
 
 	params := &g.GoSNMP{
-		Target:        "127.0.0.1",
-		Port:          1161,
-		Version:       g.Version3,
+		Target:  "127.0.0.1",
+		Port:    1161,
+		Version: g.Version3,
+		// Community:     "public",
+		ContextName:   "public",
 		SecurityModel: g.UserSecurityModel,
 		MsgFlags:      g.AuthPriv,
 		Timeout:       time.Duration(5) * time.Second,
+		Retries:       3,
 		SecurityParameters: &g.UsmSecurityParameters{
 			UserName:                 "testuser",
 			AuthenticationProtocol:   g.MD5,
@@ -91,19 +91,24 @@ func startClient(c *cli.Context) (err error) {
 			PrivacyPassphrase:        "testpriv",
 		},
 		MaxOids: 16,
+		Logger:  g.NewLogger(logger),
 	}
+
+	logger.WithFields(log.Fields{"Version": params.Version.String(),
+		"Community": params.Community,
+		"MsgFlags":  params.MsgFlags,
+		"UserName":  params.SecurityParameters.Description,
+	}).Info("SNMP connection parametres")
 
 	err = params.Connect()
 	if err != nil {
-		fmt.Printf("Connection error: %v", err)
-		// logger.WithFields(log.Fields{"error": fmt.Sprintf("%v", err)}).Fatal("connection error")
+		logger.WithFields(log.Fields{"error": fmt.Sprintf("%v", err)}).Fatal("connection error")
 	}
 	defer params.Conn.Close()
 
 	result, err := params.Get(OIDs)
 	if err != nil {
-		fmt.Printf("Get error: %v", err)
-		// logger.WithFields(log.Fields{"error": fmt.Sprintf("%v", err)}).Fatal("get OID error")
+		logger.WithFields(log.Fields{"error": fmt.Sprintf("%v", err)}).Fatal("get OID error")
 	}
 
 	fmt.Printf("Len result.Variables = %d", len(result.Variables))
