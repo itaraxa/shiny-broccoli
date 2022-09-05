@@ -1,6 +1,8 @@
 package models
 
 import (
+	"time"
+
 	g "github.com/gosnmp/gosnmp"
 )
 
@@ -98,6 +100,19 @@ type ProxyRules struct {
 				PrivMethod string
 				PrivPass   string
 			}
+		}
+	}
+}
+
+/* Структура для хранения результатов опроса устройств по SNMPv3
+ */
+type InternalStorage struct {
+	Hosts map[string]struct {
+		Status     string
+		LastUpdate time.Time
+		OIDs       []struct {
+			OID   string
+			Value interface{}
 		}
 	}
 }
