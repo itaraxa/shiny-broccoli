@@ -65,15 +65,28 @@ func startProxy(c *cli.Context) error {
 	if err != nil {
 		logger.Fatalf("Error loading config: %v", err)
 	}
+	logger.Infof("Configuration file %s loaded", c.String("config"))
+
+	diagConf, err := config.LoadDiagXML(myConfig.DiagXMLfile)
+	if err != nil {
+		logger.Fatalf("Critical error read diag configuration file %s:%v", myConfig.DiagXMLfile, err)
+	}
+	logger.Infof("Diag-xml configuration file %s loaded", myConfig.DiagXMLfile)
+
+	myNodes, err := config.NewNodes(logger, diagConf)
+	if err != nil {
+		logger.Fatalf("Critical errorr convert node info from diag xml: %v", err)
+	}
+	logger.Infof("Node list is ready. Tottaly %d nodes", myNodes.Stat.Nodes)
 
 	logger.Infof("Logging settings from file: Filename=%s logLevel=%s", myConfig.LogFile, myConfig.LogLevel)
 	var wg sync.WaitGroup
 
-	for _, client := range myConfig.ListOfTS {
+	for _, client := range myNodes.ListOfTS {
 		wg.Add(1)
-		go func(b models.TS) {
+		go func(b models.Node) {
 			// Setup SNMP master: listen community "public" with default OIDs
-			logger.Infof("Start goroutine for %s serving", b.Name)
+			logger.Infof("Start goroutine for %s serving", b.NodeName)
 			defer wg.Done()
 			master := GoSNMPServer.MasterAgent{
 				Logger: logger,
@@ -111,7 +124,7 @@ func startProxy(c *cli.Context) error {
 			// Start SNMP server with master
 			server := GoSNMPServer.NewSNMPServer(master)
 			// Привязка к привеллигированному порту (<1000) требует прав root
-			err = server.ListenUDP("udp", fmt.Sprintf("%s:%s", "127.0.0.1", b.ListenPort))
+			err = server.ListenUDP("udp", fmt.Sprintf("%s:%s", "127.0.0.1", "161"))
 			if err != nil {
 				logger.Errorf("Error in listen: %+v", err)
 			}

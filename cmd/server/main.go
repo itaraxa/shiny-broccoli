@@ -26,8 +26,8 @@ func makeApp() *cli.App {
 		Description: "an example server of gosnmp",
 		Commands: []*cli.Command{
 			{
-				Name:    "RunServer",
-				Aliases: []string{"run-server"},
+				Name:    "start",
+				Aliases: []string{"s"},
 				Flags: []cli.Flag{
 					&cli.StringFlag{Name: "logLevel", Value: "info"},
 					&cli.StringFlag{Name: "community", Value: "public"},
@@ -62,23 +62,6 @@ func runServer(c *cli.Context) error {
 		logger.(*GoSNMPServer.DefaultLogger).Level = logrus.TraceLevel
 	}
 	mibImps.SetupLogger(logger)
-
-	// Пример структуры для добавления OID:
-	// {
-	// 	OID:      fmt.Sprintf("1.3.6.1.2.1.2.2.1.1.%d", ifIndex),
-	// 	Type:     gosnmp.Integer,
-	// 	OnGet:    func() (value interface{}, err error) { return GoSNMPServer.Asn1IntegerWrap(ifIndex), nil },
-	// 	Document: "ifIndex",
-	// },
-
-	// myMib := new(MyMIB)
-	// myMib["OID"] = fmt.Sprintf("1.4.6.1.2.1.2.2.1.1.%d", 66)
-	// myMib["Type"] = gosnmp.Integer
-	// myMib["OnGet"] = func() (value interface{}, err error) { return GoSNMPServer.Asn1IntegerWrap(66), nil }
-	// myMib["Document"] = "ifInt"
-
-	// myMibs := mibImps.All()
-	// myMibs = append(myMibs, myMib)
 
 	master := GoSNMPServer.MasterAgent{
 		Logger: logger,

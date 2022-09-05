@@ -15,34 +15,89 @@ type Entity struct {
 /* Общие настройки
  */
 type GlobalConfig struct {
-	LogFile  string `json:"File for logs"`
-	LogLevel string `json:"Logging level (fatal/error/info/debug/trace)"`
-	NProcs   int    `json:"Number of parallel processes"`
-	TSs      `json:"List of TS"`
+	LogFile     string               `json:"File for logs"`
+	LogLevel    string               `json:"Logging level (fatal/error/info/debug/trace)"`
+	NProcs      int                  `json:"Number of parallel processes"`
+	DiagXMLfile string               `json:"Path to diag.xml file"`
+	SNMPv3      SNMPv3GlobalSettings `json:"Common SNMPv3 settings"`
+}
+
+/* Общие настройки SNMPv3
+ */
+type SNMPv3GlobalSettings struct {
+	Level      string
+	UserName   string
+	Context    string
+	AuthMethod string
+	PrivMethod string
+	AuthPass   string
+	PrivPass   string
 }
 
 /*
-Стурктура для хранения конфигурации технических средств
+Стурктура для хранения конфигурации технических средств/серверов SNMP
 */
-type TSs struct {
-	ListOfTS []TS
+type Nodes struct {
+	Stat struct {
+		Nodes  uint
+		Points uint
+	}
+	ListOfTS []Node
 }
 
-type TS struct {
-	Name        string   `json:"KKS"`
-	ListenPort  string   `json:"Port for getting SNMPv2c query"`
-	TargetIP    string   `json:"IP address of TS"`
-	TargetPort  string   `json:"SNMP port of TS"`
-	OIDs        []string `json:"List of OIDs"`
-	SNMPVersion string   `json:"TS SNMP version"`
-	V2c         struct {
-		Community string
-	} `json:"Input SNMP parametres"`
-	V3 struct {
-		AuthLevel        string `json:"Auth level SNMPv3 (noAuthNoPriv/authNoPriv/authPriv)"`
-		AuthName         string `json:"Auth name for noAuthNoPriv level"`
-		AuthString       string `json:"MD5 or SHA auth string"`
-		AuthMethod       string `json:"Hashing method for AuthString (MD5/SHA)"`
-		EncryptionMethod string `json:"Data encryption method (DES). Only for authPriv level"`
-	} `json:"Output SNMP parametres"`
+/* Структура для хранения информации об узле
+ */
+type Node struct {
+	NodeName        string `json:"KKS"`
+	NodeIPMain      string `json:"IP address of TS"`
+	NodePortMain    string
+	NodeIPStandby   string
+	NodePortStandby string
+	Community       string
+	OIDs            []struct {
+		OID  string
+		Type string
+		Id   string
+	} `json:"List of OIDs"`
+	SNMPVersion string `json:"Node SNMP version"`
+	Period      int
+}
+
+type ProxyRules struct {
+	Stat  struct{}
+	Nodes []struct {
+		NodeId string
+		Local  struct {
+			IP   string
+			Port int
+			SNMP struct {
+				Version string
+				// For SNMPv1 and SNMPv2c
+				Community string
+				// For SNMPv3
+				Level      string
+				Context    string
+				AuthMethod string
+				AuthPass   string
+				PrivMethod string
+				PrivPass   string
+			}
+		}
+		Remote struct {
+			IP   string
+			Port int
+			SNMP struct {
+				Version string
+				// For SNMPv1 and SNMPv2c
+				Community string
+				// For SNMPv3
+				Level      string
+				Context    string
+				AuthMethod string
+				AuthPass   string
+				PrivMethod string
+				PrivPass   string
+			}
+		}
+	}
 }

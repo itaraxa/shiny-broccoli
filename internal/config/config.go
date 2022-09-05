@@ -37,8 +37,13 @@ func GenerateSkeletonConfigJSON(fileName string) (err error) {
 	}
 
 	myConf := new(models.GlobalConfig)
-	myTS := new(models.TS)
-	myConf.TSs.ListOfTS = append(myConf.TSs.ListOfTS, *myTS)
+	myConf.DiagXMLfile = "diag.xml"
+	myConf.NProcs = 8
+	myConf.SNMPv3.Level = "AuthPriv"
+	myConf.SNMPv3.Context = "public"
+	myConf.SNMPv3.AuthMethod = "MD5"
+	myConf.SNMPv3.PrivMethod = "DES"
+
 	jsonData, err := json.MarshalIndent(myConf, "", "\t")
 	if err != nil {
 		return fmt.Errorf("error marshall struct to json")

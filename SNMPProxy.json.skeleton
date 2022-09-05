@@ -1,27 +1,15 @@
 {
 	"File for logs": "",
 	"Logging level (fatal/error/info/debug/trace)": "",
-	"Number of parallel processes": 0,
-	"List of TS": {
-		"ListOfTS": [
-			{
-				"KKS": "",
-				"Port for getting SNMPv2c query": "",
-				"IP address of TS": "",
-				"SNMP port of TS": "",
-				"List of OIDs": null,
-				"TS SNMP version": "",
-				"Input SNMP parametres": {
-					"Community": ""
-				},
-				"Output SNMP parametres": {
-					"Auth level SNMPv3 (noAuthNoPriv/authNoPriv/authPriv)": "",
-					"Auth name for noAuthNoPriv level": "",
-					"MD5 or SHA auth string": "",
-					"Hashing method for AuthString (MD5/SHA)": "",
-					"Data encryption method (DES). Only for authPriv level": ""
-				}
-			}
-		]
+	"Number of parallel processes": 8,
+	"Path to diag.xml file": "diag.xml",
+	"Common SNMPv3 settings": {
+		"Level": "AuthPriv",
+		"UserName": "",
+		"Context": "public",
+		"AuthMethod": "MD5",
+		"PrivMethod": "DES",
+		"AuthPass": "",
+		"PrivPass": ""
 	}
 }
