@@ -38,7 +38,20 @@ func makeApp() *cli.App {
 				Aliases: []string{"g"},
 				Action:  generateConfig,
 				Flags: []cli.Flag{
+					&cli.StringFlag{Name: "logLevel", Value: "info"},
 					&cli.StringFlag{Name: "fileName", Value: "SNMPProxy.json.skeleton"},
+				},
+			},
+			{
+				Name:    "makeRules",
+				Usage:   "Make proxy rules template file from <config.xml>",
+				Aliases: []string{"mr"},
+				Action:  makeConfig,
+				Flags: []cli.Flag{
+					&cli.StringFlag{Name: "logLevel", Value: "info"},
+					&cli.StringFlag{Name: "configXML", Value: "config.xml"},
+					&cli.StringFlag{Name: "rulesJSON", Value: "proxyRules.json"},
+					&cli.BoolFlag{Name: "show", Value: false},
 				},
 			},
 		},
@@ -140,4 +153,51 @@ func startProxy(c *cli.Context) error {
 func main() {
 	app := makeApp()
 	app.Run(os.Args)
+}
+
+/* Generate proxy-configuration from Async configuration
+ */
+func makeConfig(c *cli.Context) error {
+	logger := GoSNMPServer.NewDefaultLogger()
+	switch strings.ToLower(c.String("logLevel")) {
+	case "fatal":
+		logger.(*GoSNMPServer.DefaultLogger).Level = logrus.FatalLevel
+	case "error":
+		logger.(*GoSNMPServer.DefaultLogger).Level = logrus.ErrorLevel
+	case "info":
+		logger.(*GoSNMPServer.DefaultLogger).Level = logrus.InfoLevel
+	case "debug":
+		logger.(*GoSNMPServer.DefaultLogger).Level = logrus.DebugLevel
+	case "trace":
+		logger.(*GoSNMPServer.DefaultLogger).Level = logrus.TraceLevel
+	}
+
+	conf := config.NewDiagConf()
+	if err := conf.LoadXML(c.String("configXML")); err != nil {
+		logger.Fatalf("Fatal error loading xml file %s: %v\n", c.String("configXML"), err)
+	}
+	logger.Infof("File %s loaded\n", c.String("configXML"))
+
+	logger.Debugf("Data from %s:\n%s\n", c.String("configXML"), conf.String())
+
+	// if err := conf.DumpXML(fmt.Sprintf("%s.new", c.String("configXML"))); err != nil {
+	// 	logger.Fatalf("Fatal error dump xml file %s: %v\n", fmt.Sprintf("%s.new", c.String("configXML")), err)
+	// }
+	// logger.Infof("File %s dumped\n", fmt.Sprintf("%s.new", c.String("configXML")))
+
+	pr, err := conf.NewProxyRules()
+	if err != nil {
+		logger.Fatalf("Fatal error creating proxy rules: %v", err)
+	}
+	logger.Info("Proxy rules created\n")
+	if err = pr.DumpProxyRulesJSON(c.String("rulesJSON")); err != nil {
+		logger.Fatalf("Fatal error dumping proxy rules: %v", err)
+	}
+	logger.Infof("File %s created\n", c.String("rulesJSON"))
+
+	if c.Bool("show") {
+		fmt.Printf("\n%s\n", pr.String())
+	}
+
+	return nil
 }

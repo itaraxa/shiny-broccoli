@@ -2,6 +2,7 @@ package config
 
 import (
 	"encoding/xml"
+	"fmt"
 	"io"
 	"os"
 	"strconv"
@@ -84,6 +85,145 @@ type DiagConf struct {
 			} `xml:"value"`
 		} `xml:"channel"`
 	} `xml:"dts"`
+}
+
+func NewDiagConf() *DiagConf {
+	return new(DiagConf)
+}
+
+/* Load config from <config.xml> file
+ */
+func (dc *DiagConf) LoadXML(fileName string) error {
+	xmlFile, err := os.Open(fileName)
+	if err != nil {
+		return err
+	}
+	defer xmlFile.Close()
+
+	data, err := io.ReadAll(xmlFile)
+	if err != nil {
+		return err
+	}
+
+	if err = xml.Unmarshal(data, dc); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+/*
+	Create PROXY-config
+
+TO-DO: Add encoding from CP-1251, UTF-8
+*/
+func (dc *DiagConf) DumpXML(fileName string) error {
+	xmlFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer xmlFile.Close()
+
+	data, err := xml.MarshalIndent(dc, "", "\t")
+	if err != nil {
+		return err
+	}
+
+	if _, err = xmlFile.Write(data); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (dc *DiagConf) String() string {
+	var res string
+	res = fmt.Sprintf("Logging: %s\n", dc.Logging.Level)
+	res += fmt.Sprintf("Trap Server: %s\n", dc.Trapsrv.Port)
+	for _, node := range dc.Nodes.Node {
+		res += fmt.Sprintf("\tid=%s\tIP1=%s\tIP2=%s\n", node.ID, node.Snmp.Mainlink, node.Snmp.Standbylink)
+		for _, OID := range node.Snmp.Params.Param {
+			res += fmt.Sprintf("\t\tRef=%s\tName=%s\tID=%s\n", OID.Ref, OID.Name, OID.ID)
+		}
+	}
+
+	return res
+}
+
+/* Fill proxy rules from config.xml
+ */
+func (dc *DiagConf) NewProxyRules() (*models.ProxyRules, error) {
+	pr := new(models.ProxyRules)
+
+	for _, node := range dc.Nodes.Node {
+		t := new(struct {
+			NodeId string
+			Local  struct {
+				IP   string
+				Port int
+				SNMP struct {
+					Version string
+					// For SNMPv1 and SNMPv2c
+					Community string
+					// For SNMPv3
+					Level      string
+					Context    string
+					AuthMethod string
+					AuthPass   string
+					PrivMethod string
+					PrivPass   string
+				}
+			}
+			Remote struct {
+				IP   string
+				Port int
+				SNMP struct {
+					Version string
+					// For SNMPv1 and SNMPv2c
+					Community string
+					// For SNMPv3
+					Level      string
+					Context    string
+					AuthMethod string
+					AuthPass   string
+					PrivMethod string
+					PrivPass   string
+				}
+			}
+		})
+
+		t.NodeId = node.ID
+		if strings.Contains(node.Snmp.Mainlink, ":") {
+			t.Local.IP = strings.Split(node.Snmp.Mainlink, ":")[0]
+			t.Local.Port, _ = strconv.Atoi(strings.Split(node.Snmp.Mainlink, ":")[1])
+		} else {
+			t.Local.IP = node.Snmp.Mainlink
+			t.Local.Port = 161
+		}
+		// if strings.Contains(node.Snmp.Standbylink, ":") {
+		// 	t.Local.IP = strings.Split(node.Snmp.Standbylink, ":")[0]
+		// 	t.Local.Port, _ = strconv.Atoi(strings.Split(node.Snmp.Standbylink, ":")[1])
+		// } else {
+		// 	t.Local.IP = node.Snmp.Standbylink
+		// 	t.Local.Port = 161
+		// }
+
+		t.Local.SNMP.Version = node.Snmp.Version
+		t.Remote.SNMP.Version = "3"
+
+		t.Local.SNMP.Community = node.Snmp.Community
+		t.Remote.SNMP.Context = node.Snmp.Community
+
+		t.Remote.SNMP.Level = "AuthPriv"
+		t.Remote.SNMP.AuthMethod = "MD5"
+		t.Remote.SNMP.AuthPass = "SNMPv3AuthPass"
+		t.Remote.SNMP.PrivMethod = "DES"
+		t.Remote.SNMP.PrivPass = "SNMPv3PrivPass"
+
+		pr.Nodes = append(pr.Nodes, *t)
+	}
+
+	return pr, nil
 }
 
 func LoadDiagXML(XMLfileName string) (d DiagConf, err error) {

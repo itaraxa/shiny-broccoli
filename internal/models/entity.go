@@ -65,6 +65,11 @@ type Node struct {
 	Period      int
 }
 
+/*
+	Proxy rules configuration
+
+TO-DO: добавить в структуру поддержку резервных адресов
+*/
 type ProxyRules struct {
 	Stat  struct{}
 	Nodes []struct {
