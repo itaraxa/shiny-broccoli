@@ -21,3 +21,5 @@ venv
 # vscode-project directory
 .vscode
 
+# binary files
+out
