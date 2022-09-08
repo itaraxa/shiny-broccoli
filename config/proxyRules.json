@@ -4,8 +4,10 @@
 		{
 			"NodeId": "0CWM11GH001E01",
 			"Local": {
-				"IP": "192.168.4.101",
-				"Port": 161,
+				"IP1": "192.168.4.101",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -18,8 +20,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -35,8 +39,10 @@
 		{
 			"NodeId": "0CWM11GH001E02",
 			"Local": {
-				"IP": "192.168.2.101",
-				"Port": 161,
+				"IP1": "192.168.2.101",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -49,8 +55,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -66,8 +74,10 @@
 		{
 			"NodeId": "0CWM11GH001E03",
 			"Local": {
-				"IP": "192.168.4.201",
-				"Port": 161,
+				"IP1": "192.168.4.201",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -80,8 +90,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -97,8 +109,10 @@
 		{
 			"NodeId": "0CWM11GH001E04",
 			"Local": {
-				"IP": "",
-				"Port": 161,
+				"IP1": "",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "",
 					"Community": "",
@@ -111,8 +125,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -128,8 +144,10 @@
 		{
 			"NodeId": "0CWM11GH001K1S",
 			"Local": {
-				"IP": "192.168.2.241",
-				"Port": 161,
+				"IP1": "192.168.2.241",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -142,8 +160,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -159,8 +179,10 @@
 		{
 			"NodeId": "0CWM11GH001K2S",
 			"Local": {
-				"IP": "192.168.4.241",
-				"Port": 161,
+				"IP1": "192.168.4.241",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -173,8 +195,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -190,8 +214,10 @@
 		{
 			"NodeId": "0CWM11GH001",
 			"Local": {
-				"IP": "192.168.2.1",
-				"Port": 161,
+				"IP1": "192.168.2.1",
+				"Port1": 161,
+				"IP2": "192.168.4.1",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -204,8 +230,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -221,8 +249,10 @@
 		{
 			"NodeId": "0CWM11GH002E01",
 			"Local": {
-				"IP": "192.168.4.102",
-				"Port": 161,
+				"IP1": "192.168.4.102",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -235,8 +265,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -252,8 +284,10 @@
 		{
 			"NodeId": "0CWM11GH002E02",
 			"Local": {
-				"IP": "192.168.2.102",
-				"Port": 161,
+				"IP1": "192.168.2.102",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -266,8 +300,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -283,8 +319,10 @@
 		{
 			"NodeId": "0CWM11GH002E03",
 			"Local": {
-				"IP": "192.168.4.202",
-				"Port": 161,
+				"IP1": "192.168.4.202",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -297,8 +335,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -314,8 +354,10 @@
 		{
 			"NodeId": "0CWM11GH002E04",
 			"Local": {
-				"IP": "",
-				"Port": 161,
+				"IP1": "",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "",
 					"Community": "",
@@ -328,8 +370,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -345,8 +389,10 @@
 		{
 			"NodeId": "0CWM11GH002K1S",
 			"Local": {
-				"IP": "192.168.2.242",
-				"Port": 161,
+				"IP1": "192.168.2.242",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -359,8 +405,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -376,8 +424,10 @@
 		{
 			"NodeId": "0CWM11GH002K2S",
 			"Local": {
-				"IP": "192.168.4.242",
-				"Port": 161,
+				"IP1": "192.168.4.242",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -390,8 +440,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -407,8 +459,10 @@
 		{
 			"NodeId": "0CWM11GH002",
 			"Local": {
-				"IP": "192.168.2.2",
-				"Port": 161,
+				"IP1": "192.168.2.2",
+				"Port1": 161,
+				"IP2": "192.168.4.2",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -421,8 +475,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -438,8 +494,10 @@
 		{
 			"NodeId": "0CWK11GH001E01",
 			"Local": {
-				"IP": "192.168.2.230",
-				"Port": 161,
+				"IP1": "192.168.2.230",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -452,8 +510,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -469,8 +529,10 @@
 		{
 			"NodeId": "0CWK11GH001E02",
 			"Local": {
-				"IP": "192.168.2.220",
-				"Port": 161,
+				"IP1": "192.168.2.220",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -483,8 +545,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -500,8 +564,10 @@
 		{
 			"NodeId": "0CWK11GH001E03",
 			"Local": {
-				"IP": "192.168.2.210",
-				"Port": 161,
+				"IP1": "192.168.2.210",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -514,8 +580,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -531,8 +599,10 @@
 		{
 			"NodeId": "0CWK11GH001S",
 			"Local": {
-				"IP": "192.168.2.240",
-				"Port": 161,
+				"IP1": "192.168.2.240",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -545,8 +615,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -562,8 +634,10 @@
 		{
 			"NodeId": "0CWK11GH002E01",
 			"Local": {
-				"IP": "192.168.4.230",
-				"Port": 161,
+				"IP1": "192.168.4.230",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -576,8 +650,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -593,8 +669,10 @@
 		{
 			"NodeId": "0CWK11GH002E02",
 			"Local": {
-				"IP": "192.168.4.220",
-				"Port": 161,
+				"IP1": "192.168.4.220",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -607,8 +685,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -624,8 +704,10 @@
 		{
 			"NodeId": "0CWK11GH002E03",
 			"Local": {
-				"IP": "192.168.4.210",
-				"Port": 161,
+				"IP1": "192.168.4.210",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -638,8 +720,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -655,8 +739,10 @@
 		{
 			"NodeId": "0CWK11GH002S",
 			"Local": {
-				"IP": "192.168.4.240",
-				"Port": 161,
+				"IP1": "192.168.4.240",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -669,8 +755,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -686,8 +774,10 @@
 		{
 			"NodeId": "0CWK11GH003E01",
 			"Local": {
-				"IP": "192.168.30.230",
-				"Port": 161,
+				"IP1": "192.168.30.230",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -700,8 +790,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -717,8 +809,10 @@
 		{
 			"NodeId": "0CWK11GH003E02",
 			"Local": {
-				"IP": "192.168.30.220",
-				"Port": 161,
+				"IP1": "192.168.30.220",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -731,8 +825,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -748,8 +844,10 @@
 		{
 			"NodeId": "0CWK11GH003E03",
 			"Local": {
-				"IP": "192.168.30.210",
-				"Port": 161,
+				"IP1": "192.168.30.210",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -762,8 +860,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -779,8 +879,10 @@
 		{
 			"NodeId": "0CWK11GH003S",
 			"Local": {
-				"IP": "192.168.30.240",
-				"Port": 161,
+				"IP1": "192.168.30.240",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -793,8 +895,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -810,8 +914,10 @@
 		{
 			"NodeId": "0CWK11GH004E01",
 			"Local": {
-				"IP": "192.168.32.230",
-				"Port": 161,
+				"IP1": "192.168.32.230",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -824,8 +930,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -841,8 +949,10 @@
 		{
 			"NodeId": "0CWK11GH004E02",
 			"Local": {
-				"IP": "192.168.32.220",
-				"Port": 161,
+				"IP1": "192.168.32.220",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -855,8 +965,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -872,8 +984,10 @@
 		{
 			"NodeId": "0CWK11GH004E03",
 			"Local": {
-				"IP": "192.168.32.210",
-				"Port": 161,
+				"IP1": "192.168.32.210",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -886,8 +1000,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -903,8 +1019,10 @@
 		{
 			"NodeId": "0CWK11GH004S",
 			"Local": {
-				"IP": "192.168.32.240",
-				"Port": 161,
+				"IP1": "192.168.32.240",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -917,8 +1035,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -934,8 +1054,10 @@
 		{
 			"NodeId": "0CWK11GH005E01",
 			"Local": {
-				"IP": "192.168.14.230",
-				"Port": 161,
+				"IP1": "192.168.14.230",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -948,8 +1070,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -965,8 +1089,10 @@
 		{
 			"NodeId": "0CWK11GH005E02",
 			"Local": {
-				"IP": "192.168.14.220",
-				"Port": 161,
+				"IP1": "192.168.14.220",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -979,8 +1105,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -996,8 +1124,10 @@
 		{
 			"NodeId": "0CWK11GH005E03",
 			"Local": {
-				"IP": "192.168.14.210",
-				"Port": 161,
+				"IP1": "192.168.14.210",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1010,8 +1140,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1027,8 +1159,10 @@
 		{
 			"NodeId": "0CWK11GH005S",
 			"Local": {
-				"IP": "192.168.14.240",
-				"Port": 161,
+				"IP1": "192.168.14.240",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1041,8 +1175,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1058,8 +1194,10 @@
 		{
 			"NodeId": "0CWK11GH006E01",
 			"Local": {
-				"IP": "192.168.16.230",
-				"Port": 161,
+				"IP1": "192.168.16.230",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1072,8 +1210,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1089,8 +1229,10 @@
 		{
 			"NodeId": "0CWK11GH006E02",
 			"Local": {
-				"IP": "192.168.16.220",
-				"Port": 161,
+				"IP1": "192.168.16.220",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1103,8 +1245,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1120,8 +1264,10 @@
 		{
 			"NodeId": "0CWK11GH006E03",
 			"Local": {
-				"IP": "192.168.16.210",
-				"Port": 161,
+				"IP1": "192.168.16.210",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1134,8 +1280,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1151,8 +1299,10 @@
 		{
 			"NodeId": "0CWK11GH006S",
 			"Local": {
-				"IP": "192.168.16.240",
-				"Port": 161,
+				"IP1": "192.168.16.240",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1165,8 +1315,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1182,8 +1334,10 @@
 		{
 			"NodeId": "0CWL11EM001E01",
 			"Local": {
-				"IP": "192.168.4.111",
-				"Port": 161,
+				"IP1": "192.168.4.111",
+				"Port1": 161,
+				"IP2": "192.168.2.11",
+				"Port2": 65535,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1196,8 +1350,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1213,8 +1369,10 @@
 		{
 			"NodeId": "0CWL11EM001E02",
 			"Local": {
-				"IP": "192.168.2.111",
-				"Port": 161,
+				"IP1": "192.168.2.111",
+				"Port1": 161,
+				"IP2": "192.168.4.11",
+				"Port2": 65534,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1227,8 +1385,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1244,8 +1404,10 @@
 		{
 			"NodeId": "0CWL11EM001E03",
 			"Local": {
-				"IP": "192.168.4.211",
-				"Port": 161,
+				"IP1": "192.168.4.211",
+				"Port1": 161,
+				"IP2": "192.168.2.11",
+				"Port2": 65533,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1258,8 +1420,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1275,8 +1439,10 @@
 		{
 			"NodeId": "0CWL11EM001E04",
 			"Local": {
-				"IP": "",
-				"Port": 161,
+				"IP1": "",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "",
 					"Community": "",
@@ -1289,8 +1455,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1306,8 +1474,10 @@
 		{
 			"NodeId": "0CWL11EM001K1S",
 			"Local": {
-				"IP": "192.168.2.231",
-				"Port": 161,
+				"IP1": "192.168.2.231",
+				"Port1": 161,
+				"IP2": "192.168.4.11",
+				"Port2": 65532,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1320,8 +1490,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1337,8 +1509,10 @@
 		{
 			"NodeId": "0CWL11EM001K2S",
 			"Local": {
-				"IP": "192.168.4.231",
-				"Port": 161,
+				"IP1": "192.168.4.231",
+				"Port1": 161,
+				"IP2": "192.168.2.11",
+				"Port2": 65531,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1351,8 +1525,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1368,8 +1544,10 @@
 		{
 			"NodeId": "0CWL11EM001",
 			"Local": {
-				"IP": "192.168.2.11",
-				"Port": 161,
+				"IP1": "192.168.2.11",
+				"Port1": 161,
+				"IP2": "192.168.4.11",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1382,8 +1560,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1399,8 +1579,10 @@
 		{
 			"NodeId": "0CWL11EM002E01",
 			"Local": {
-				"IP": "192.168.4.112",
-				"Port": 161,
+				"IP1": "192.168.4.112",
+				"Port1": 161,
+				"IP2": "192.168.2.12",
+				"Port2": 65535,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1413,8 +1595,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1430,8 +1614,10 @@
 		{
 			"NodeId": "0CWL11EM002E02",
 			"Local": {
-				"IP": "192.168.2.112",
-				"Port": 161,
+				"IP1": "192.168.2.112",
+				"Port1": 161,
+				"IP2": "192.168.4.12",
+				"Port2": 65534,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1444,8 +1630,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1461,8 +1649,10 @@
 		{
 			"NodeId": "0CWL11EM002E03",
 			"Local": {
-				"IP": "192.168.4.212",
-				"Port": 161,
+				"IP1": "192.168.4.212",
+				"Port1": 161,
+				"IP2": "192.168.2.12",
+				"Port2": 65533,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1475,8 +1665,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1492,8 +1684,10 @@
 		{
 			"NodeId": "0CWL11EM002E04",
 			"Local": {
-				"IP": "",
-				"Port": 161,
+				"IP1": "",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "",
 					"Community": "",
@@ -1506,8 +1700,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1523,8 +1719,10 @@
 		{
 			"NodeId": "0CWL11EM002K1S",
 			"Local": {
-				"IP": "192.168.2.232",
-				"Port": 161,
+				"IP1": "192.168.2.232",
+				"Port1": 161,
+				"IP2": "192.168.4.12",
+				"Port2": 65532,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1537,8 +1735,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1554,8 +1754,10 @@
 		{
 			"NodeId": "0CWL11EM002K2S",
 			"Local": {
-				"IP": "192.168.4.232",
-				"Port": 161,
+				"IP1": "192.168.4.232",
+				"Port1": 161,
+				"IP2": "192.168.2.12",
+				"Port2": 65531,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1568,8 +1770,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1585,8 +1789,10 @@
 		{
 			"NodeId": "0CWL11EM002",
 			"Local": {
-				"IP": "192.168.2.12",
-				"Port": 161,
+				"IP1": "192.168.2.12",
+				"Port1": 161,
+				"IP2": "192.168.4.12",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1599,8 +1805,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1616,8 +1824,10 @@
 		{
 			"NodeId": "0CWL11EM003E01",
 			"Local": {
-				"IP": "192.168.4.113",
-				"Port": 161,
+				"IP1": "192.168.4.113",
+				"Port1": 161,
+				"IP2": "192.168.2.13",
+				"Port2": 65535,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1630,8 +1840,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1647,8 +1859,10 @@
 		{
 			"NodeId": "0CWL11EM003E02",
 			"Local": {
-				"IP": "192.168.2.113",
-				"Port": 161,
+				"IP1": "192.168.2.113",
+				"Port1": 161,
+				"IP2": "192.168.4.13",
+				"Port2": 65534,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1661,8 +1875,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1678,8 +1894,10 @@
 		{
 			"NodeId": "0CWL11EM003E03",
 			"Local": {
-				"IP": "192.168.4.213",
-				"Port": 161,
+				"IP1": "192.168.4.213",
+				"Port1": 161,
+				"IP2": "192.168.2.13",
+				"Port2": 65533,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1692,8 +1910,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1709,8 +1929,10 @@
 		{
 			"NodeId": "0CWL11EM003E04",
 			"Local": {
-				"IP": "",
-				"Port": 161,
+				"IP1": "",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "",
 					"Community": "",
@@ -1723,8 +1945,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1740,8 +1964,10 @@
 		{
 			"NodeId": "0CWL11EM003K1S",
 			"Local": {
-				"IP": "192.168.2.233",
-				"Port": 161,
+				"IP1": "192.168.2.233",
+				"Port1": 161,
+				"IP2": "192.168.4.13",
+				"Port2": 65532,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1754,8 +1980,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1771,8 +1999,10 @@
 		{
 			"NodeId": "0CWL11EM003K2S",
 			"Local": {
-				"IP": "192.168.4.233",
-				"Port": 161,
+				"IP1": "192.168.4.233",
+				"Port1": 161,
+				"IP2": "192.168.2.13",
+				"Port2": 65531,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1785,8 +2015,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1802,8 +2034,10 @@
 		{
 			"NodeId": "0CWL11EM003",
 			"Local": {
-				"IP": "192.168.2.13",
-				"Port": 161,
+				"IP1": "192.168.2.13",
+				"Port1": 161,
+				"IP2": "192.168.4.13",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1816,8 +2050,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1833,8 +2069,10 @@
 		{
 			"NodeId": "0CWL11EM004E01",
 			"Local": {
-				"IP": "192.168.4.114",
-				"Port": 161,
+				"IP1": "192.168.4.114",
+				"Port1": 161,
+				"IP2": "192.168.2.14",
+				"Port2": 65535,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1847,8 +2085,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1864,8 +2104,10 @@
 		{
 			"NodeId": "0CWL11EM004E02",
 			"Local": {
-				"IP": "192.168.2.114",
-				"Port": 161,
+				"IP1": "192.168.2.114",
+				"Port1": 161,
+				"IP2": "192.168.4.14",
+				"Port2": 65534,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1878,8 +2120,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1895,8 +2139,10 @@
 		{
 			"NodeId": "0CWL11EM004E03",
 			"Local": {
-				"IP": "192.168.4.214",
-				"Port": 161,
+				"IP1": "192.168.4.214",
+				"Port1": 161,
+				"IP2": "192.168.2.14",
+				"Port2": 65533,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -1909,8 +2155,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1926,8 +2174,10 @@
 		{
 			"NodeId": "0CWL11EM004E04",
 			"Local": {
-				"IP": "",
-				"Port": 161,
+				"IP1": "",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "",
 					"Community": "",
@@ -1940,8 +2190,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1957,8 +2209,10 @@
 		{
 			"NodeId": "0CWL11EM004K1S",
 			"Local": {
-				"IP": "192.168.2.234",
-				"Port": 161,
+				"IP1": "192.168.2.234",
+				"Port1": 161,
+				"IP2": "192.168.4.14",
+				"Port2": 65532,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -1971,8 +2225,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -1988,8 +2244,10 @@
 		{
 			"NodeId": "0CWL11EM004K2S",
 			"Local": {
-				"IP": "192.168.4.234",
-				"Port": 161,
+				"IP1": "192.168.4.234",
+				"Port1": 161,
+				"IP2": "192.168.2.14",
+				"Port2": 65531,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2002,8 +2260,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2019,8 +2279,10 @@
 		{
 			"NodeId": "0CWL11EM004",
 			"Local": {
-				"IP": "192.168.2.14",
-				"Port": 161,
+				"IP1": "192.168.2.14",
+				"Port1": 161,
+				"IP2": "192.168.4.14",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2033,8 +2295,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2050,8 +2314,10 @@
 		{
 			"NodeId": "0CWL11EM007E01",
 			"Local": {
-				"IP": "192.168.4.115",
-				"Port": 161,
+				"IP1": "192.168.4.115",
+				"Port1": 161,
+				"IP2": "192.168.2.15",
+				"Port2": 65535,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -2064,8 +2330,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2081,8 +2349,10 @@
 		{
 			"NodeId": "0CWL11EM007E02",
 			"Local": {
-				"IP": "192.168.2.115",
-				"Port": 161,
+				"IP1": "192.168.2.115",
+				"Port1": 161,
+				"IP2": "192.168.4.15",
+				"Port2": 65534,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2095,8 +2365,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2112,8 +2384,10 @@
 		{
 			"NodeId": "0CWL11EM007E03",
 			"Local": {
-				"IP": "192.168.4.215",
-				"Port": 161,
+				"IP1": "192.168.4.215",
+				"Port1": 161,
+				"IP2": "192.168.2.15",
+				"Port2": 65533,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -2126,8 +2400,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2143,8 +2419,10 @@
 		{
 			"NodeId": "0CWL11EM007E04",
 			"Local": {
-				"IP": "",
-				"Port": 161,
+				"IP1": "",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "",
 					"Community": "",
@@ -2157,8 +2435,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2174,8 +2454,10 @@
 		{
 			"NodeId": "0CWL11EM007K1S",
 			"Local": {
-				"IP": "192.168.2.235",
-				"Port": 161,
+				"IP1": "192.168.2.235",
+				"Port1": 161,
+				"IP2": "192.168.4.15",
+				"Port2": 65532,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2188,8 +2470,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2205,8 +2489,10 @@
 		{
 			"NodeId": "0CWL11EM007K2S",
 			"Local": {
-				"IP": "192.168.4.235",
-				"Port": 161,
+				"IP1": "192.168.4.235",
+				"Port1": 161,
+				"IP2": "192.168.2.15",
+				"Port2": 65531,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2219,8 +2505,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2236,8 +2524,10 @@
 		{
 			"NodeId": "0CWL11EM007",
 			"Local": {
-				"IP": "192.168.2.15",
-				"Port": 161,
+				"IP1": "192.168.2.15",
+				"Port1": 161,
+				"IP2": "192.168.4.15",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2250,8 +2540,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2267,8 +2559,10 @@
 		{
 			"NodeId": "0CWQ11GK001E01",
 			"Local": {
-				"IP": "192.168.32.109",
-				"Port": 161,
+				"IP1": "192.168.32.109",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -2281,8 +2575,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2298,8 +2594,10 @@
 		{
 			"NodeId": "0CWQ11GK001E02",
 			"Local": {
-				"IP": "192.168.30.109",
-				"Port": 161,
+				"IP1": "192.168.30.109",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2312,8 +2610,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2329,8 +2629,10 @@
 		{
 			"NodeId": "0CWQ11GK001E03",
 			"Local": {
-				"IP": "192.168.32.201",
-				"Port": 161,
+				"IP1": "192.168.32.201",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "1",
 					"Community": "public",
@@ -2343,8 +2645,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2360,8 +2664,10 @@
 		{
 			"NodeId": "0CWQ11GK001E05",
 			"Local": {
-				"IP": "192.168.30.9",
-				"Port": 161,
+				"IP1": "192.168.30.9",
+				"Port1": 161,
+				"IP2": "192.168.32.9",
+				"Port2": 161,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2374,8 +2680,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2391,8 +2699,10 @@
 		{
 			"NodeId": "0CWQ11GK001K1S",
 			"Local": {
-				"IP": "192.168.30.231",
-				"Port": 161,
+				"IP1": "192.168.30.231",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2405,8 +2715,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",
@@ -2422,8 +2734,10 @@
 		{
 			"NodeId": "0CWQ11GK001K2S",
 			"Local": {
-				"IP": "192.168.32.231",
-				"Port": 161,
+				"IP1": "192.168.32.231",
+				"Port1": 161,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "2c",
 					"Community": "public",
@@ -2436,8 +2750,10 @@
 				}
 			},
 			"Remote": {
-				"IP": "",
-				"Port": 0,
+				"IP1": "",
+				"Port1": 0,
+				"IP2": "",
+				"Port2": 0,
 				"SNMP": {
 					"Version": "3",
 					"Community": "",

@@ -24,38 +24,44 @@ func makeApp() *cli.App {
 		Commands: []*cli.Command{
 			{
 				Name:    "start",
-				Usage:   "Start SNMP proxy-server",
+				Usage:   "Start SNMP proxy",
 				Aliases: []string{"s"},
 				Action:  startProxy,
 				Flags: []cli.Flag{
-					&cli.StringFlag{Name: "logLevel", Value: "info"},
-					&cli.StringFlag{Name: "config", Value: "proxy.json"},
+					&cli.StringFlag{Name: "logLevel", Value: "info", Usage: "Logging level: fatal/error/info/debug/trace"},
+					&cli.StringFlag{Name: "config", Value: "proxyConfig.json", Usage: "Proxy configuration file"},
+					&cli.StringFlag{Name: "rules", Value: "proxyRules.json", Usage: "Proxy rules file"},
 				},
 			},
 			{
 				Name:    "generate",
-				Usage:   "Generate skeleton for configuration file",
+				Usage:   "Generate skeleton for Proxy configuration file",
 				Aliases: []string{"g"},
 				Action:  generateConfig,
 				Flags: []cli.Flag{
-					&cli.StringFlag{Name: "logLevel", Value: "info"},
-					&cli.StringFlag{Name: "fileName", Value: "SNMPProxy.json.skeleton"},
+					&cli.StringFlag{Name: "logLevel", Value: "info", Usage: "Logging level: fatal/error/info/debug/trace"},
+					&cli.StringFlag{Name: "fileName", Value: "proxyConfig.json.skeleton", Usage: "Name for template configuration"},
 				},
 			},
 			{
 				Name:    "makeRules",
-				Usage:   "Make proxy rules template file from <config.xml>",
+				Usage:   "Make Proxy rules template file from ASync2 configuration",
 				Aliases: []string{"mr"},
 				Action:  makeConfig,
 				Flags: []cli.Flag{
-					&cli.StringFlag{Name: "logLevel", Value: "info"},
-					&cli.StringFlag{Name: "configXML", Value: "config.xml"},
-					&cli.StringFlag{Name: "rulesJSON", Value: "proxyRules.json"},
-					&cli.BoolFlag{Name: "show", Value: false},
+					&cli.StringFlag{Name: "logLevel", Value: "info", Usage: "Logging level: fatal/error/info/debug/trace"},
+					&cli.StringFlag{Name: "configXML", Value: "config.xml", Usage: "Configuration file for Async2"},
+					&cli.StringFlag{Name: "rules", Value: "proxyRules.json", Usage: "Proxy rules file"},
+					&cli.BoolFlag{Name: "show", Value: false, Usage: "Print result rules to screen"},
 				},
 			},
 		},
 	}
+}
+
+func main() {
+	app := makeApp()
+	app.Run(os.Args)
 }
 
 func startProxy(c *cli.Context) error {
@@ -150,11 +156,6 @@ func startProxy(c *cli.Context) error {
 	return nil
 }
 
-func main() {
-	app := makeApp()
-	app.Run(os.Args)
-}
-
 /* Generate proxy-configuration from Async configuration
  */
 func makeConfig(c *cli.Context) error {
@@ -180,20 +181,15 @@ func makeConfig(c *cli.Context) error {
 
 	logger.Debugf("Data from %s:\n%s\n", c.String("configXML"), conf.String())
 
-	// if err := conf.DumpXML(fmt.Sprintf("%s.new", c.String("configXML"))); err != nil {
-	// 	logger.Fatalf("Fatal error dump xml file %s: %v\n", fmt.Sprintf("%s.new", c.String("configXML")), err)
-	// }
-	// logger.Infof("File %s dumped\n", fmt.Sprintf("%s.new", c.String("configXML")))
-
 	pr, err := conf.NewProxyRules()
 	if err != nil {
 		logger.Fatalf("Fatal error creating proxy rules: %v", err)
 	}
 	logger.Info("Proxy rules created\n")
-	if err = pr.DumpProxyRulesJSON(c.String("rulesJSON")); err != nil {
+	if err = pr.DumpProxyRulesJSON(c.String("rules")); err != nil {
 		logger.Fatalf("Fatal error dumping proxy rules: %v", err)
 	}
-	logger.Infof("File %s created\n", c.String("rulesJSON"))
+	logger.Infof("File %s created\n", c.String("rules"))
 
 	if c.Bool("show") {
 		fmt.Printf("\n%s\n", pr.String())

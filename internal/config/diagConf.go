@@ -159,9 +159,11 @@ func (dc *DiagConf) NewProxyRules() (*models.ProxyRules, error) {
 		t := new(struct {
 			NodeId string
 			Local  struct {
-				IP   string
-				Port int
-				SNMP struct {
+				IP1   string
+				Port1 int
+				IP2   string
+				Port2 int
+				SNMP  struct {
 					Version string
 					// For SNMPv1 and SNMPv2c
 					Community string
@@ -175,9 +177,11 @@ func (dc *DiagConf) NewProxyRules() (*models.ProxyRules, error) {
 				}
 			}
 			Remote struct {
-				IP   string
-				Port int
-				SNMP struct {
+				IP1   string
+				Port1 int
+				IP2   string
+				Port2 int
+				SNMP  struct {
 					Version string
 					// For SNMPv1 and SNMPv2c
 					Community string
@@ -194,12 +198,23 @@ func (dc *DiagConf) NewProxyRules() (*models.ProxyRules, error) {
 
 		t.NodeId = node.ID
 		if strings.Contains(node.Snmp.Mainlink, ":") {
-			t.Local.IP = strings.Split(node.Snmp.Mainlink, ":")[0]
-			t.Local.Port, _ = strconv.Atoi(strings.Split(node.Snmp.Mainlink, ":")[1])
+			t.Local.IP1 = strings.Split(node.Snmp.Mainlink, ":")[0]
+			t.Local.Port1, _ = strconv.Atoi(strings.Split(node.Snmp.Mainlink, ":")[1])
 		} else {
-			t.Local.IP = node.Snmp.Mainlink
-			t.Local.Port = 161
+			t.Local.IP1 = node.Snmp.Mainlink
+			t.Local.Port1 = 161
 		}
+
+		if node.Snmp.Standbylink != "" {
+			if strings.Contains(node.Snmp.Standbylink, ":") {
+				t.Local.IP2 = strings.Split(node.Snmp.Standbylink, ":")[0]
+				t.Local.Port2, _ = strconv.Atoi(strings.Split(node.Snmp.Standbylink, ":")[1])
+			} else {
+				t.Local.IP2 = node.Snmp.Standbylink
+				t.Local.Port2 = 161
+			}
+		}
+
 		// if strings.Contains(node.Snmp.Standbylink, ":") {
 		// 	t.Local.IP = strings.Split(node.Snmp.Standbylink, ":")[0]
 		// 	t.Local.Port, _ = strconv.Atoi(strings.Split(node.Snmp.Standbylink, ":")[1])

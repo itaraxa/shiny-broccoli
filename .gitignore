@@ -22,4 +22,4 @@ venv
 .vscode
 
 # binary files
-out
+out/*

@@ -75,9 +75,11 @@ type ProxyRules struct {
 	Nodes []struct {
 		NodeId string
 		Local  struct {
-			IP   string
-			Port int
-			SNMP struct {
+			IP1   string
+			Port1 int
+			IP2   string
+			Port2 int
+			SNMP  struct {
 				Version string
 				// For SNMPv1 and SNMPv2c
 				Community string
@@ -91,9 +93,11 @@ type ProxyRules struct {
 			}
 		}
 		Remote struct {
-			IP   string
-			Port int
-			SNMP struct {
+			IP1   string
+			Port1 int
+			IP2   string
+			Port2 int
+			SNMP  struct {
 				Version string
 				// For SNMPv1 and SNMPv2c
 				Community string
