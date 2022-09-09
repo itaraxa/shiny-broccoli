@@ -14,28 +14,6 @@ type Entity struct {
 	// Logger log.Logger
 }
 
-/* Общие настройки
- */
-type GlobalConfig struct {
-	LogFile     string               `json:"File for logs"`
-	LogLevel    string               `json:"Logging level (fatal/error/info/debug/trace)"`
-	NProcs      int                  `json:"Number of parallel processes"`
-	DiagXMLfile string               `json:"Path to diag.xml file"`
-	SNMPv3      SNMPv3GlobalSettings `json:"Common SNMPv3 settings"`
-}
-
-/* Общие настройки SNMPv3
- */
-type SNMPv3GlobalSettings struct {
-	Level      string
-	UserName   string
-	Context    string
-	AuthMethod string
-	PrivMethod string
-	AuthPass   string
-	PrivPass   string
-}
-
 /*
 Стурктура для хранения конфигурации технических средств/серверов SNMP
 */
@@ -63,54 +41,6 @@ type Node struct {
 	} `json:"List of OIDs"`
 	SNMPVersion string `json:"Node SNMP version"`
 	Period      int
-}
-
-/*
-	Proxy rules configuration
-
-TO-DO: добавить в структуру поддержку резервных адресов
-*/
-type ProxyRules struct {
-	Stat  struct{}
-	Nodes []struct {
-		NodeId string
-		Local  struct {
-			IP1   string
-			Port1 int
-			IP2   string
-			Port2 int
-			SNMP  struct {
-				Version string
-				// For SNMPv1 and SNMPv2c
-				Community string
-				// For SNMPv3
-				Level      string
-				Context    string
-				AuthMethod string
-				AuthPass   string
-				PrivMethod string
-				PrivPass   string
-			}
-		}
-		Remote struct {
-			IP1   string
-			Port1 int
-			IP2   string
-			Port2 int
-			SNMP  struct {
-				Version string
-				// For SNMPv1 and SNMPv2c
-				Community string
-				// For SNMPv3
-				Level      string
-				Context    string
-				AuthMethod string
-				AuthPass   string
-				PrivMethod string
-				PrivPass   string
-			}
-		}
-	}
 }
 
 /* Структура для хранения результатов опроса устройств по SNMPv3
