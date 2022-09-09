@@ -22,7 +22,7 @@ func makeApp() *cli.App {
 					&cli.StringFlag{Name: "logLevel", Value: "info", Usage: "Logging level: fatal/error/info/debug/trace"},
 					&cli.StringFlag{Name: "config", Value: "proxyConfig.json", Usage: "Proxy configuration file"},
 					&cli.StringFlag{Name: "rules", Value: "proxyRules.json", Usage: "Proxy rules file"},
-					&cli.StringFlag{Name: "version", Value: "1", Usage: "Version of proxy server function"},
+					&cli.StringFlag{Name: "version", Value: "2", Usage: "Version of proxy server function"},
 				},
 			},
 			{

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"os"
 	"os/signal"
 	"strings"
@@ -66,18 +67,24 @@ func startProxyV2(c *cli.Context) error {
 	// Прочитать глобальную конфигурацию
 	gc, err := globalConfig.LoadConfigFromJSON(c.String("config"))
 	if err != nil {
-		logger.Fatalf("Error loading global configuration")
+		logger.Fatalf("Error loading global configuration from %s: %v", c.String("config"), err)
 	}
 	logger.Infof("Global config: NProc = %d", gc.NProcs)
 
 	// Прочитать правила proxy
 	pr := proxyRules.NewProxyRules()
-	pr.LoadProxyRules(c.String("rules"))
+	if err = pr.LoadProxyRules(c.String("rules")); err != nil {
+		log.Fatalf("Error loading Proxy rules from %s: %v", c.String("rules"), err)
+	}
+	logger.Infof("Proxy rules loaded from %s\n%s", c.String("rules"), pr.String())
+
+	// Создать струтуры для хранения данных
 
 	// Запустить горутины SNMPv3 clients
 
 	// Run goroutines SNMPv3 servers
 
+	logger.Info("SNMPProxy stoped. Reason: end programm")
 	return nil
 }
 
