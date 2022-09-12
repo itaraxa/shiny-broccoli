@@ -1,5 +1,7 @@
 package models
 
+import "encoding/json"
+
 /* Proxy rules configuration
  */
 type ProxyRules struct {
@@ -43,4 +45,9 @@ type ProxyRules struct {
 			}
 		}
 	}
+}
+
+func (pr *ProxyRules) String() string {
+	res, _ := json.MarshalIndent(pr, "", "\t")
+	return string(res) + "\n"
 }

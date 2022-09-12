@@ -2,22 +2,21 @@ package proxyRules
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 
 	"github.com/itaraxa/shiny-broccoli/internal/models"
 )
 
-type proxyRules models.ProxyRules
-
 /* proxyRules struct constructor
  */
-func NewProxyRules() *proxyRules {
-	return new(proxyRules)
+func NewProxyRules() *models.ProxyRules {
+	return new(models.ProxyRules)
 }
 
 /* Save proxy rules structure to JSON file
  */
-func (pr *proxyRules) DumpProxyRulesJSON(fileName string) error {
+func DumpProxyRulesJSON(pr *models.ProxyRules, fileName string) error {
 	jsonFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -38,10 +37,10 @@ func (pr *proxyRules) DumpProxyRulesJSON(fileName string) error {
 
 /* Load ProxyRules from json file
  */
-func (pr *proxyRules) LoadProxyRules(fileName string) error {
+func LoadProxyRules(pr *models.ProxyRules, fileName string) error {
 	file, err := os.Open(fileName)
 	if err != nil {
-		return err
+		return fmt.Errorf("error opening file %s: %v", fileName, err)
 	}
 	defer file.Close()
 
@@ -51,9 +50,4 @@ func (pr *proxyRules) LoadProxyRules(fileName string) error {
 	}
 
 	return nil
-}
-
-func (pr *proxyRules) String() string {
-	res, _ := json.MarshalIndent(pr, "", "\t")
-	return string(res) + "\n"
 }

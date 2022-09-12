@@ -7,7 +7,9 @@ import (
 	"strings"
 	"syscall"
 
+	"github.com/itaraxa/shiny-broccoli/internal/diagConfig"
 	"github.com/itaraxa/shiny-broccoli/internal/globalConfig"
+	"github.com/itaraxa/shiny-broccoli/internal/internalStorage"
 	"github.com/itaraxa/shiny-broccoli/internal/proxyRules"
 	"github.com/sirupsen/logrus"
 	"github.com/slayercat/GoSNMPServer"
@@ -73,12 +75,20 @@ func startProxyV2(c *cli.Context) error {
 
 	// Прочитать правила proxy
 	pr := proxyRules.NewProxyRules()
-	if err = pr.LoadProxyRules(c.String("rules")); err != nil {
+	if err = proxyRules.LoadProxyRules(pr, c.String("rules")); err != nil {
 		log.Fatalf("Error loading Proxy rules from %s: %v", c.String("rules"), err)
 	}
 	logger.Infof("Proxy rules loaded from %s\n%s", c.String("rules"), pr.String())
 
+	// Прочитать конфигурацию async для получения перечня OID
+	dc := diagConfig.NewDiagConf()
+
 	// Создать струтуры для хранения данных
+	is := internalStorage.NewInternalStorage()
+	if err = internalStorage.Init(is, pr, dc); err != nil {
+		log.Fatalf("Error initialize internal storage: %v", err)
+	}
+	logger.Infof("Internal storage initialized")
 
 	// Запустить горутины SNMPv3 clients
 
@@ -88,6 +98,8 @@ func startProxyV2(c *cli.Context) error {
 	return nil
 }
 
+/* Proxy-сервер: Версия 1
+ */
 func startProxyV1(c *cli.Context) error {
 	// Create and setup logger
 	logger := GoSNMPServer.NewDefaultLogger()

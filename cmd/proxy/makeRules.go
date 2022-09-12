@@ -29,7 +29,7 @@ func makeRules(c *cli.Context) error {
 	}
 
 	conf := diagConfig.NewDiagConf()
-	if err := conf.LoadXML(c.String("configXML")); err != nil {
+	if err := diagConfig.LoadXML(c.String("configXML"), conf); err != nil {
 		logger.Fatalf("Fatal error loading xml file %s: %v\n", c.String("configXML"), err)
 	}
 	logger.Infof("File %s loaded\n", c.String("configXML"))
@@ -38,7 +38,7 @@ func makeRules(c *cli.Context) error {
 
 	pr := proxyRules.NewProxyRules()
 
-	if err := pr.DumpProxyRulesJSON(c.String("rules")); err != nil {
+	if err := proxyRules.DumpProxyRulesJSON(pr, c.String("rules")); err != nil {
 		logger.Fatalf("Fatal error dumping proxy rules: %v", err)
 	}
 	logger.Infof("File %s created\n", c.String("rules"))

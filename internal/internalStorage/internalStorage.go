@@ -8,22 +8,31 @@ import (
 	"github.com/itaraxa/shiny-broccoli/internal/models"
 )
 
-type internalStorage models.InternalStorage
+// type internalStorage models.InternalStorage
 
-func NewInternalStorage() *internalStorage {
-	return new(internalStorage)
+func NewInternalStorage() *models.InternalStorage {
+	return new(models.InternalStorage)
 }
 
 /* Инициализация структуры внутреннего хранилища
  */
-func (is *internalStorage) Init(pr *models.ProxyRules) error {
+func Init(is *models.InternalStorage, pr *models.ProxyRules, dc *models.DiagConfig) (err error) {
+	for _, rule := range pr.Nodes {
+		is.Hosts[rule.NodeId] = struct {
+			Status     string
+			LastUpdate time.Time
+			OIDs       map[string]interface{}
+		}{Status: "Not answered",
+			LastUpdate: time.Now()}
+		// for _, OID := range dc.Nodes.Node
+	}
 
-	return nil
+	return
 }
 
 /* Запись данных во внутреннее хранилище
  */
-func (is *internalStorage) Add(hostname string, data *map[string]interface{}, m *sync.Mutex) (err error) {
+func Add(hostname string, data *map[string]interface{}, m *sync.Mutex, is *models.InternalStorage) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = errors.New("data add error")
@@ -43,7 +52,7 @@ func (is *internalStorage) Add(hostname string, data *map[string]interface{}, m 
 
 /* Получить данные из внутреннего хранилища
  */
-func (is *internalStorage) Get(hostname string) (status string, lastUpdate time.Time, data map[string]interface{}, err error) {
+func Get(is *models.InternalStorage, hostname string) (status string, lastUpdate time.Time, data map[string]interface{}, err error) {
 	status = is.Hosts[hostname].Status
 	lastUpdate = is.Hosts[hostname].LastUpdate
 	data = is.Hosts[hostname].OIDs

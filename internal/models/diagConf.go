@@ -1,10 +1,13 @@
 package models
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"fmt"
+)
 
 /* Структура опиcывающая конфигурационный файл Async (/etc/diag/diag.xml)
  */
-type DiagConf struct {
+type DiagConfig struct {
 	XMLName        xml.Name `xml:"doc"`
 	Text           string   `xml:",chardata"`
 	Xmlns          string   `xml:"xmlns,attr"`
@@ -75,4 +78,18 @@ type DiagConf struct {
 			} `xml:"value"`
 		} `xml:"channel"`
 	} `xml:"dts"`
+}
+
+func (dc *DiagConfig) String() string {
+	var res string
+	res = fmt.Sprintf("Logging: %s\n", dc.Logging.Level)
+	res += fmt.Sprintf("Trap Server: %s\n", dc.Trapsrv.Port)
+	for _, node := range dc.Nodes.Node {
+		res += fmt.Sprintf("\tid=%s\tIP1=%s\tIP2=%s\n", node.ID, node.Snmp.Mainlink, node.Snmp.Standbylink)
+		for _, OID := range node.Snmp.Params.Param {
+			res += fmt.Sprintf("\t\tRef=%s\tName=%s\tID=%s\n", OID.Ref, OID.Name, OID.ID)
+		}
+	}
+
+	return res
 }

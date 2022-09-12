@@ -2,7 +2,6 @@ package diagConfig
 
 import (
 	"encoding/xml"
-	"fmt"
 	"io"
 	"os"
 	"strconv"
@@ -12,15 +11,13 @@ import (
 	"github.com/slayercat/GoSNMPServer"
 )
 
-type diagConf models.DiagConf
-
-func NewDiagConf() *diagConf {
-	return new(diagConf)
+func NewDiagConf() *models.DiagConfig {
+	return new(models.DiagConfig)
 }
 
 /* Load config from <config.xml> file
  */
-func (dc *diagConf) LoadXML(fileName string) error {
+func LoadXML(fileName string, dc *models.DiagConfig) error {
 	xmlFile, err := os.Open(fileName)
 	if err != nil {
 		return err
@@ -44,7 +41,7 @@ func (dc *diagConf) LoadXML(fileName string) error {
 
 TO-DO: Add encoding from CP-1251, UTF-8
 */
-func (dc *diagConf) DumpXML(fileName string) error {
+func DumpXML(fileName string, dc *models.DiagConfig) error {
 	xmlFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -63,23 +60,9 @@ func (dc *diagConf) DumpXML(fileName string) error {
 	return nil
 }
 
-func (dc *diagConf) String() string {
-	var res string
-	res = fmt.Sprintf("Logging: %s\n", dc.Logging.Level)
-	res += fmt.Sprintf("Trap Server: %s\n", dc.Trapsrv.Port)
-	for _, node := range dc.Nodes.Node {
-		res += fmt.Sprintf("\tid=%s\tIP1=%s\tIP2=%s\n", node.ID, node.Snmp.Mainlink, node.Snmp.Standbylink)
-		for _, OID := range node.Snmp.Params.Param {
-			res += fmt.Sprintf("\t\tRef=%s\tName=%s\tID=%s\n", OID.Ref, OID.Name, OID.ID)
-		}
-	}
-
-	return res
-}
-
 /* Fill proxy rules from config.xml
  */
-func (dc *diagConf) NewProxyRules() (*models.ProxyRules, error) {
+func NewProxyRules(dc *models.DiagConfig) (*models.ProxyRules, error) {
 	pr := new(models.ProxyRules)
 
 	for _, node := range dc.Nodes.Node {
@@ -168,7 +151,7 @@ func (dc *diagConf) NewProxyRules() (*models.ProxyRules, error) {
 	return pr, nil
 }
 
-func LoadDiagXML(XMLfileName string) (d diagConf, err error) {
+func LoadDiagXML(XMLfileName string, d *models.DiagConfig) (err error) {
 	xmlFile, err := os.Open(XMLfileName)
 	if err != nil {
 		return
@@ -180,17 +163,17 @@ func LoadDiagXML(XMLfileName string) (d diagConf, err error) {
 		return
 	}
 
-	err = xml.Unmarshal(data, &d)
+	err = xml.Unmarshal(data, d)
 	if err != nil {
 		return
 	}
 
-	return d, nil
+	return nil
 }
 
 /* Трансляция данных config.xml -> Node struct
  */
-func NewNodes(logger GoSNMPServer.ILogger, d diagConf) (n models.Nodes, err error) {
+func NewNodes(logger GoSNMPServer.ILogger, d *models.DiagConfig) (n models.Nodes, err error) {
 	for _, item := range d.Nodes.Node {
 		tn := new(models.Node)
 		tn.NodeName = item.Name
